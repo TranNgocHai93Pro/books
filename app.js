@@ -24,12 +24,13 @@ const getDb = () => dbConnection
 
 
 const app = express()
+let PORT = process.env.PORT || 3004
 app.use(express.json())// update data dang json
 let db
 connectToDb ((err) => {
     if(!err){
-        app.listen(3004,() => {
-            console.log('Server is running on Port 3004')
+        app.listen(PORT,() => {
+            console.log(`Server is running on Port ${PORT}`)
         })
         db = getDb()
     }else{
